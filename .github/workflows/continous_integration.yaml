@@ -10,19 +10,6 @@ on:
       - main
 
 jobs:
-  install-dependencies:
-    runs-on: ubuntu-22.04
-
-    steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v3
-      with:
-        python-version: '3.11'
-        cache: 'pip'
-    - name: Install dependencies
-      run: pip install -r requirements.txt
-  
   lint:
     runs-on: ubuntu-22.04
 
