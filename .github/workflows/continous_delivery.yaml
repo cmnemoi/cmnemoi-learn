@@ -1,4 +1,4 @@
-name: Publish Python package to PyPI
+name: Continous Delivery
 
 on:
   push:
@@ -9,10 +9,28 @@ permissions:
   contents: read
 
 jobs:
-  deploy:
-
+  release:
+    name: Create Github Release
     runs-on: ubuntu-22.04
+    concurrency: release
+    permissions:
+      id-token: write
+      contents: write
 
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Create release
+      uses: python-semantic-release/python-semantic-release@master
+      with:
+        github_token: ${{ secrets.ADMINISTRATOR_GITHUB_TOKEN }}
+
+  publish:
+    name: Publish package to PyPI
+    runs-on: ubuntu-22.04
+    
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python
