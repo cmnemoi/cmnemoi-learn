@@ -19,6 +19,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      token: ${{ secrets.ADMINISTRATOR_GITHUB_TOKEN }}
       with:
         fetch-depth: 0
 
