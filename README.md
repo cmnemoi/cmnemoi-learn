@@ -15,7 +15,7 @@ cd cmnemoi-learn
 
 Then install dependencies. If you run Miniconda or Anaconda: 
 ```bash
-conda create -n cmnemoi-learn python=3.10 -y
+conda create -n cmnemoi-learn python=3.11 -y
 conda activate cmnemoi-learn
 pip install -r requirements.txt
 ```
