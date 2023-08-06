@@ -4,7 +4,7 @@ File defining a Linear Regression model.
 
 from typing import Self
 import numpy as np
-from numpy.linalg import inv
+from numpy.linalg import cond, det, inv, svd
 
 from cmnemoi_learn.regression.abstract_regressor import AbstractRegressor
 
@@ -34,7 +34,15 @@ class LinearRegression(AbstractRegressor):
         """
         self.X = self._get_inputs_with_bias_column(X)
         self.y = y
-        self.theta = inv(self.X.T @ self.X) @ (self.X.T @ self.y)
+        inputs_covariance_matrix = self.X.T @ self.X
+
+        conditionnement = cond(inputs_covariance_matrix)
+        epsilon = np.finfo(inputs_covariance_matrix.dtype).eps
+        if conditionnement >= 1 / epsilon:
+            U, S, Vh = svd(inputs_covariance_matrix)
+            inputs_covariance_matrix = np.dot(U * S, Vh)
+        
+        self.theta = inv(inputs_covariance_matrix) @ (self.X.T @ self.y)
         return self
 
     def predict(self, X: np.ndarray) -> np.ndarray:
