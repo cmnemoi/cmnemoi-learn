@@ -44,7 +44,7 @@ def regression_linear_dataset() -> np.ndarray:
 @pytest.fixture
 def regression_linear_dataset_with_small_n_big_p() -> np.ndarray:
     """Regression dataset which follows a linear pattern
-    `X, y = regression_circle_dataset` to use
+    `X, y = regression_linear_dataset_with_small_n_big_p` to use
 
     Returns:
         np.ndarray: The dataset

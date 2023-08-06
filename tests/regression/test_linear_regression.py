@@ -13,7 +13,7 @@ np.random.seed(42)
 
 def test_predict_friedman_dataset(regression_friedman_dataset: np.ndarray) -> None:
     """
-    Test `predict` against sklearn implementation.
+    Test `predict` on the Friedman #2 problem.
     """
     X, y = regression_friedman_dataset
     cmnemoi_model = LinearRegression()
@@ -30,7 +30,7 @@ def test_predict_friedman_dataset(regression_friedman_dataset: np.ndarray) -> No
 
 def test_predict_linear_dataset(regression_linear_dataset: np.ndarray) -> None:
     """
-    Test `predict` against sklearn implementation.
+    Test `predict` on a linear dataset.
     """
     X, y = regression_linear_dataset
     cmnemoi_model = LinearRegression()
