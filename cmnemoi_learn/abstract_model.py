@@ -41,7 +41,7 @@ class AbstractModel(ABC):
 
     @abstractmethod
     def score(self, X: np.ndarray, y: np.ndarray) -> float:
-        """Returns the mean squared error of the model for the
+        """Returns the score of the model for the
         inputs and output given on arguments.
 
         Args:
@@ -49,5 +49,5 @@ class AbstractModel(ABC):
             y (np.ndarray): Output
 
         Returns:
-            float: Mean Squared Error
+            float: Model score
         """
