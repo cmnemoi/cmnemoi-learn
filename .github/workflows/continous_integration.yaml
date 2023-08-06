@@ -11,6 +11,9 @@ on:
       - 'cmnemoi_learn/**'
       - 'tests/**'
 
+permissions:
+  contents: read
+
 jobs:
   lint:
     runs-on: ubuntu-22.04
@@ -44,4 +47,9 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
     - name: Run unit tests
-      run: python -m pytest
+      run: python -m pytest --cov=cmnemoi_learn/
+    - name: Upload coverage to Coveralls
+      uses: coverallsapp/github-action@v2
+      with:
+        github-token: ${{ secrets.ADMINISTRATOR_GITHUB_TOKEN }}
+        path-to-lcov: coverage/lcov.info
