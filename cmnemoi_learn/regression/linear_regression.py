@@ -6,16 +6,17 @@ from typing import Self
 import numpy as np
 from numpy.linalg import inv
 
+from cmnemoi_learn.regression.abstract_regressor import AbstractRegressor
 
-class LinearRegression:
+
+class LinearRegression(AbstractRegressor):
     """
     Linear Regression model.
     `y = X.theta` where `theta` are the parameters of the model.
     """
 
     def __init__(self) -> None:
-        self.X = np.array([])
-        self.y = np.array([])
+        super().__init__()
         self.theta = np.array([])
 
     def fit(self, X: np.ndarray, y: np.ndarray) -> Self:

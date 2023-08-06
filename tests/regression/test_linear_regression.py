@@ -4,8 +4,9 @@ Unit tests for Linear Regression model
 import numpy as np
 
 from sklearn.linear_model import LinearRegression as SklearnLinearRegression
+from sklearn.metrics import mean_squared_error
 
-from cmnemoi_learn.linear_regression import LinearRegression
+from cmnemoi_learn.regression.linear_regression import LinearRegression
 
 np.random.seed(42)
 
@@ -59,3 +60,21 @@ def test_circle_predict(regression_circle_dataset) -> None:
     sklearn_prediction = sklearn_model.predict(X)
 
     assert np.allclose(cmnemoi_prediction, sklearn_prediction)
+
+
+def test_score(regression_circle_dataset) -> None:
+    """Test `score` method against sklearn implementation.
+
+    Args:
+        regression_circle_dataset (np.ndarray): Dataset with a circle pattern.
+    """
+    X, y = regression_circle_dataset
+    model = LinearRegression()
+    model = model.fit(X, y)
+
+    y_pred = model.predict(X)
+
+    cmnemoi_mse = model.score(X, y)
+    sklearn_mse = mean_squared_error(y_pred, y)
+
+    assert np.isclose(cmnemoi_mse, sklearn_mse)
