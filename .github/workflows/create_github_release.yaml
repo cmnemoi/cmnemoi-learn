@@ -26,6 +26,6 @@ jobs:
     - name: Create release
       uses: python-semantic-release/python-semantic-release@master
       with:
-        git_commiter_name: ${{ secrets.NERON_GITHUB_NAME }}
-        git_commiter_email: ${{ secrets.NERON_GITHUB_EMAIL }}
+        git_committer_name: ${{ secrets.NERON_GITHUB_NAME }}
+        git_committer_email: ${{ secrets.NERON_GITHUB_EMAIL }}
         github_token: ${{ secrets.ADMINISTRATOR_GITHUB_TOKEN }}
