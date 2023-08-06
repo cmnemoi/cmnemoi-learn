@@ -58,7 +58,4 @@ def test_circle_predict(regression_circle_dataset) -> None:
     cmnemoi_prediction = cmnemoi_model.predict(X)
     sklearn_prediction = sklearn_model.predict(X)
 
-    print(cmnemoi_prediction.ravel())
-    print(sklearn_prediction.ravel())
-
     assert np.allclose(cmnemoi_prediction, sklearn_prediction)

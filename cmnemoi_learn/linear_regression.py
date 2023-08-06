@@ -19,7 +19,9 @@ class LinearRegression:
         self.theta = np.array([])
 
     def fit(self, X: np.ndarray, y: np.ndarray) -> Self:
-        """Fit the Linear Regression model with normal equations solution
+        """Fit the Linear Regression model with normal equations solution.
+        The optimal parameters `theta` of the model are the ones who minimize Residuals Sum of Squares :
+        `RSS = Sum(y - X.theta)**2`
 
         Args:
             X (np.ndarray): Inputs
@@ -28,7 +30,9 @@ class LinearRegression:
         Returns:
             LinearRegression: Fitted Linear Regression model.
         """
-        self.theta = inv(X.T @ X) @ (X.T @ y)
+        self.X = self._get_inputs_with_bias_column(X)
+        self.y = y
+        self.theta = inv(self.X.T @ self.X) @ (self.X.T @ self.y)
         return self
 
     def predict(self, X: np.ndarray) -> np.ndarray:
@@ -40,4 +44,18 @@ class LinearRegression:
         Returns:
             LinearRegression: Linear Regression model used to predict.
         """
-        return X.T @ self.theta
+        X = self._get_inputs_with_bias_column(X)
+        return X @ self.theta
+
+    def _get_inputs_with_bias_column(self, X: np.ndarray) -> np.ndarray:
+        """Returns the inputs `X` with a `1`-filled bias column.
+
+        Args:
+            X (np.ndarray): Model inputs
+
+        Returns:
+            np.ndarray: New inputs with a bias column.
+        """
+        number_of_rows = X.shape[0]
+        bias_column = np.ones((number_of_rows, 1))
+        return np.hstack((bias_column, X))
