@@ -7,4 +7,4 @@ lint:
 	poetry run pylint cmnemoi_learn tests
 
 test:
-	poetry run pytest -v
+	poetry run pytest -v --cov=cmnemoi_learn/

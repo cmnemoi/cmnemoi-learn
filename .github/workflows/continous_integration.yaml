@@ -8,8 +8,12 @@ on:
     branches:
       - main
     paths:
+      - '.github/workflows/**'
       - 'cmnemoi_learn/**'
       - 'tests/**'
+
+permissions:
+  contents: read
 
 jobs:
   lint:
@@ -44,4 +48,9 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
     - name: Run unit tests
-      run: python -m pytest
+      run: python -m pytest --cov=cmnemoi_learn/
+    - name: Upload coverage to Coveralls
+      uses: coverallsapp/github-action@v2
+      with:
+        format: python
+        github-token: ${{ secrets.GITHUB_TOKEN }}
