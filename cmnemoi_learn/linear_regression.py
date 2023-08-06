@@ -20,8 +20,9 @@ class LinearRegression:
 
     def fit(self, X: np.ndarray, y: np.ndarray) -> Self:
         """Fit the Linear Regression model with normal equations solution.
-        The optimal parameters `theta` of the model are the ones who minimize Residuals Sum of Squares :
-        `RSS = Sum(y - X.theta)**2`
+
+        The optimal parameters `theta` of the model are the ones which minimize 
+        Residuals Sum of Squares : `RSS = Sum(y - X.theta)**2`.
 
         Args:
             X (np.ndarray): Inputs
