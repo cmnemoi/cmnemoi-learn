@@ -1,5 +1,5 @@
 """
-Unit tests for Linear Regression model
+Unit tests for Linear Regression model against sklearn implementation
 """
 import numpy as np
 
@@ -11,9 +11,26 @@ from cmnemoi_learn.regression.linear_regression import LinearRegression
 np.random.seed(42)
 
 
-def test_linear_predict(regression_linear_dataset) -> None:
+def test_predict_friedman_dataset(regression_friedman_dataset: np.ndarray) -> None:
     """
-    Test `predict` against sklearn implementation.
+    Test `predict` on the Friedman #2 problem.
+    """
+    X, y = regression_friedman_dataset
+    cmnemoi_model = LinearRegression()
+    cmnemoi_model = cmnemoi_model.fit(X, y)
+
+    sklearn_model = SklearnLinearRegression()
+    sklearn_model = sklearn_model.fit(X, y)
+
+    cmnemoi_prediction = cmnemoi_model.predict(X)
+    sklearn_prediction = sklearn_model.predict(X)
+
+    assert np.allclose(cmnemoi_prediction, sklearn_prediction)
+
+
+def test_predict_linear_dataset(regression_linear_dataset: np.ndarray) -> None:
+    """
+    Test `predict` on a linear dataset.
     """
     X, y = regression_linear_dataset
     cmnemoi_model = LinearRegression()
@@ -28,11 +45,13 @@ def test_linear_predict(regression_linear_dataset) -> None:
     assert np.allclose(cmnemoi_prediction, sklearn_prediction)
 
 
-def test_linear_with_noise_predict(regression_linear_dataset_with_noise) -> None:
+def test_predict_linear_dataset_with_small_n_big_p(
+    regression_linear_dataset_with_small_n_big_p: np.ndarray,
+) -> None:
+    """Test `predict` on a linear dataset with small `n` and big `p`
+    (underdetermined system)
     """
-    Test `predict` against sklearn implementation.
-    """
-    X, y = regression_linear_dataset_with_noise
+    X, y = regression_linear_dataset_with_small_n_big_p
     cmnemoi_model = LinearRegression()
     cmnemoi_model = cmnemoi_model.fit(X, y)
 
@@ -45,30 +64,13 @@ def test_linear_with_noise_predict(regression_linear_dataset_with_noise) -> None
     assert np.allclose(cmnemoi_prediction, sklearn_prediction)
 
 
-def test_circle_predict(regression_circle_dataset) -> None:
-    """
-    Test `predict` against sklearn implementation.
-    """
-    X, y = regression_circle_dataset
-    cmnemoi_model = LinearRegression()
-    cmnemoi_model = cmnemoi_model.fit(X, y)
-
-    sklearn_model = SklearnLinearRegression()
-    sklearn_model = sklearn_model.fit(X, y)
-
-    cmnemoi_prediction = cmnemoi_model.predict(X)
-    sklearn_prediction = sklearn_model.predict(X)
-
-    assert np.allclose(cmnemoi_prediction, sklearn_prediction)
-
-
-def test_score(regression_circle_dataset) -> None:
+def test_score(regression_friedman_dataset) -> None:
     """Test `score` method against sklearn implementation.
 
     Args:
-        regression_circle_dataset (np.ndarray): Dataset with a circle pattern.
+        regression_friedman_dataset (np.ndarray): Dataset with a friedman pattern.
     """
-    X, y = regression_circle_dataset
+    X, y = regression_friedman_dataset
     model = LinearRegression()
     model = model.fit(X, y)
 
