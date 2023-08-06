@@ -29,7 +29,7 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
     - name: Run Black
-      run: python -m black .
+      run: python -m black --check .
     - name: Run Mypy
       run: python -m mypy .
     - name: Run Pylint
