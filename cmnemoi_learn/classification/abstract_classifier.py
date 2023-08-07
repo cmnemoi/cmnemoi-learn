@@ -8,7 +8,7 @@ from cmnemoi_learn.abstract_model import AbstractModel
 
 
 class AbstractClassifier(AbstractModel):
-    """Class defining an abstract classifier (for predicting continous `y` values).
+    """Class defining an abstract classifier (for predicting discrete `y` values).
 
     Args:
         AbstractModel (AbstractModel): Class defining an abstract model.
@@ -27,7 +27,7 @@ class AbstractClassifier(AbstractModel):
             y (np.ndarray): Output
 
         Returns:
-            float: Mean Squared Error
+            float: Accuracy
         """
         y_pred = self.predict(X)
         return 0
