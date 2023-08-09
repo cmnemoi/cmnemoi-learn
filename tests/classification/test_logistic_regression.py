@@ -78,7 +78,7 @@ def test_score(classification_circles_dataset) -> None:
 
     y_pred = model.predict(X)
 
-    cmnemoi_mse = model.score(X, y)
-    sklearn_mse = accuracy_score(y_pred, y)
+    cmnemoi_accuracy = model.score(X, y)
+    sklearn_accuracy = accuracy_score(y_pred, y)
 
-    assert np.isclose(cmnemoi_mse, sklearn_mse)
+    assert np.isclose(cmnemoi_accuracy, sklearn_accuracy)
