@@ -51,3 +51,18 @@ class AbstractModel(ABC):
         Returns:
             float: Model score
         """
+
+    def _reshape_ndarray(self, ndarray: np.ndarray) -> np.ndarray:
+        """Reshape 1-D ndarray to ensure it has 2D shape.
+
+        Args:
+            ndarray (np.ndarray): ndarray to rehasepe
+
+        Returns:
+            np.ndarray: Reshaped ndarray
+        """
+        return (
+            ndarray.reshape((ndarray.shape[0], 1))
+            if len(ndarray.shape) == 1
+            else ndarray
+        )
