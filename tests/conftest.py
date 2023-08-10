@@ -5,7 +5,7 @@ Fixtures for unit tests
 import numpy as np
 from sklearn.datasets import (
     make_classification,
-    make_circles,
+    make_moons,
     make_regression,
     make_friedman2,
 )
@@ -18,14 +18,14 @@ RANDOM_STATE = 42
 
 
 @pytest.fixture
-def classification_circles_dataset() -> np.ndarray:
+def classification_moons_dataset() -> np.ndarray:
     """Classification dataset with circles pattern (non linear)
-    `X, y = classification_circles_dataset` to use
+    `X, y = classification_moons_dataset` to use
 
     Returns:
         np.ndarray: The dataset
     """
-    return make_circles(
+    return make_moons(
         n_samples=NUMBER_OF_SAMPLES, shuffle=False, random_state=RANDOM_STATE
     )
 
