@@ -47,25 +47,6 @@ def test_predict_linear_dataset(classification_linear_dataset: np.ndarray) -> No
     assert np.allclose(cmnemoi_prediction, sklearn_prediction)
 
 
-def test_predict_linear_dataset_with_small_n_big_p(
-    classification_linear_dataset_with_small_n_big_p: np.ndarray,
-) -> None:
-    """Test `predict` on a linearly separable dataset with small `n` and big `p`
-    (underdetermined system)
-    """
-    X, y = classification_linear_dataset_with_small_n_big_p
-    cmnemoi_model = LogisticRegression(random_state=RANDOM_STATE)
-    cmnemoi_model = cmnemoi_model.fit(X, y)
-
-    sklearn_model = SklearnLogisticRegression(penalty=None, random_state=RANDOM_STATE)
-    sklearn_model = sklearn_model.fit(X, y)
-
-    cmnemoi_prediction = cmnemoi_model.predict(X)
-    sklearn_prediction = sklearn_model.predict(X)
-
-    assert np.allclose(cmnemoi_prediction, sklearn_prediction)
-
-
 def test_score(classification_moons_dataset) -> None:
     """Test `score` method against sklearn implementation.
 

@@ -6,8 +6,8 @@ import numpy as np
 from sklearn.datasets import (
     make_classification,
     make_moons,
-    make_regression,
     make_friedman2,
+    make_regression,
 )
 import pytest
 
@@ -15,19 +15,6 @@ BIAS = 5
 NUMBER_OF_FEATURES = 2
 NUMBER_OF_SAMPLES = 50
 RANDOM_STATE = 42
-
-
-@pytest.fixture
-def classification_moons_dataset() -> np.ndarray:
-    """Classification dataset with circles pattern (non linear)
-    `X, y = classification_moons_dataset` to use
-
-    Returns:
-        np.ndarray: The dataset
-    """
-    return make_moons(
-        n_samples=NUMBER_OF_SAMPLES, shuffle=False, random_state=RANDOM_STATE
-    )
 
 
 @pytest.fixture
@@ -64,6 +51,19 @@ def classification_linear_dataset_with_small_n_big_p() -> np.ndarray:
         n_redundant=0,
         shuffle=False,
         random_state=RANDOM_STATE,
+    )
+
+
+@pytest.fixture
+def classification_moons_dataset() -> np.ndarray:
+    """Classification dataset with circles pattern (non linear)
+    `X, y = classification_moons_dataset` to use
+
+    Returns:
+        np.ndarray: The dataset
+    """
+    return make_moons(
+        n_samples=NUMBER_OF_SAMPLES, shuffle=False, random_state=RANDOM_STATE
     )
 
 
