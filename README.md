@@ -15,7 +15,17 @@ The package will be published on PyPI at each push to the `main` branch through 
 
 # Install the package
 
+## pyenv and poetry
 ```bash
+pyenv install 3.11
+pyenv local 3.11
+poetry install
+```
+
+## Anaconda or Miniconda
+```bash
+conda create -n cmnemoi-learn python=3.11 -y
+conda activate cmnemoi-learn
 pip install cmnemoi-learn
 ```
 
@@ -27,16 +37,20 @@ git clone https://github.com/cmnemoi/cmnemoi-learn.git
 cd cmnemoi-learn
 ```
 
-Then install dependencies. If you run Miniconda or Anaconda: 
+Then install dependencies. 
+
+If you run Poetry and pyenv:
 ```bash
-conda create -n cmnemoi-learn python=3.11 -y
-conda activate cmnemoi-learn
-pip install -r requirements.txt
+pyenv install 3.11
+pyenv local 3.11
+poetry install --with=dev,test
 ```
 
-If you run Poetry:
+If you run Miniconda or Anaconda: 
 ```bash
-poetry install
+conda create -n cmnemoi-learn-dev python=3.11 -y
+conda activate cmnemoi-learn-dev
+pip install -r requirements-dev.txt
 ```
 
 # License
