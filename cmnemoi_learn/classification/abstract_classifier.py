@@ -30,4 +30,11 @@ class AbstractClassifier(AbstractModel):
             float: Accuracy
         """
         y_pred = self.predict(X)
-        return np.mean([1 if yi_pred == yi_true else 0 for (yi_pred, yi_true) in zip(y_pred, y)])
+        return float(
+            np.mean(
+                [
+                    1 if yi_pred == yi_true else 0
+                    for (yi_pred, yi_true) in zip(y_pred, y)
+                ]
+            )
+        )
