@@ -2,6 +2,17 @@
 
 
 
+## v0.3.0 (2023-09-15)
+
+### Ci
+
+* ci: fix dependencies installation in pipelines (#16) ([`481f300`](https://github.com/cmnemoi/cmnemoi-learn/commit/481f300391f9134125a18eb37973de4a7cc4dfe9))
+
+### Feature
+
+* feat: Add `LogisticRegression` (#14) ([`becd1fc`](https://github.com/cmnemoi/cmnemoi-learn/commit/becd1fcabc948badba8a0930356085a2d031b6c4))
+
+
 ## v0.2.2 (2023-08-30)
 
 ### Chore
