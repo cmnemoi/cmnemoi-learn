@@ -2,6 +2,13 @@
 
 
 
+## v0.4.0 (2023-09-16)
+
+### Feature
+
+* feat: New public API making usage more simple (#17) ([`db1aa7e`](https://github.com/cmnemoi/cmnemoi-learn/commit/db1aa7e502d7168b1a149c1d82c9681eff563769))
+
+
 ## v0.3.0 (2023-09-15)
 
 ### Ci
