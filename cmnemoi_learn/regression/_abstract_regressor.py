@@ -4,7 +4,7 @@ File defining an abstract regressor (for predicting continous `y` values)
 
 import numpy as np
 
-from cmnemoi_learn.abstract_model import AbstractModel
+from .._abstract_model import AbstractModel
 
 
 class AbstractRegressor(AbstractModel):

@@ -6,7 +6,7 @@ import numpy as np
 from sklearn.linear_model import LinearRegression as SklearnLinearRegression
 from sklearn.metrics import mean_squared_error
 
-from cmnemoi_learn.regression.linear_regression import LinearRegression
+from cmnemoi_learn.regression import LinearRegression
 
 np.random.seed(42)
 

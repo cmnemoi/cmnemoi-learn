@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cmnemoi-learn"
-version = "0.3.0"
+version = "0.4.0"
 description = "Machine Learning from scratch by Charles-Meldhine Madi Mnemoi"
 authors = ["Charles-Meldhine Madi Mnemoi <charlesmeldhine.madimnemoi@gmail.com>"]
 license = "MIT"

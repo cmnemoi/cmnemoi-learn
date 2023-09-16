@@ -6,7 +6,7 @@ from typing import Self
 import numpy as np
 from numpy.linalg import pinv
 
-from cmnemoi_learn.regression.abstract_regressor import AbstractRegressor
+from ._abstract_regressor import AbstractRegressor
 
 
 class LinearRegression(AbstractRegressor):

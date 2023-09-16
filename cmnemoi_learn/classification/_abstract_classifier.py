@@ -4,7 +4,7 @@ File defining an abstract classifier (for predicting discrete `y` values)
 
 import numpy as np
 
-from cmnemoi_learn.abstract_model import AbstractModel
+from .._abstract_model import AbstractModel
 
 
 class AbstractClassifier(AbstractModel):

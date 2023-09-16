@@ -4,7 +4,7 @@ File defining a logistic regression model.
 from typing import Optional, Self
 import numpy as np
 
-from cmnemoi_learn.classification.abstract_classifier import AbstractClassifier
+from ._abstract_classifier import AbstractClassifier
 
 
 class LogisticRegression(AbstractClassifier):
