@@ -6,7 +6,7 @@ import numpy as np
 from sklearn.linear_model import LogisticRegression as SklearnLogisticRegression
 from sklearn.metrics import accuracy_score
 
-from cmnemoi_learn.classification.logistic_regression import LogisticRegression
+from cmnemoi_learn.classification import LogisticRegression
 
 RANDOM_STATE = 42
 
