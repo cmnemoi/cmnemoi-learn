@@ -2,7 +2,8 @@
 
 [![CI Status](https://github.com/cmnemoi/cmnemoi-learn/actions/workflows/continous_integration.yaml/badge.svg?branch=main)](https://github.com/cmnemoi/cmnemoi-learn/actions/workflows/continous_integration.yaml)
 [![CD Status](https://github.com/cmnemoi/cmnemoi-learn/actions/workflows/create_github_release.yaml/badge.svg?branch=main)](https://github.com/cmnemoi/cmnemoi-learn/actions/workflows/create_github_release.yaml)
-[![Coverage Status](https://coveralls.io/repos/github/cmnemoi/cmnemoi-learn/badge.svg?branch=main)](https://coveralls.io/github/cmnemoi/cmnemoi-learn?branch=main) 
+[![Coverage Status](https://coveralls.io/repos/github/cmnemoi/cmnemoi-learn/badge.svg?branch=main)](https://coveralls.io/github/cmnemoi/cmnemoi-learn?branch=main) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcmnemoi%2Fcmnemoi-learn.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fcmnemoi%2Fcmnemoi-learn?ref=badge_shield)
+
 [![PyPI version](https://badge.fury.io/py/cmnemoi-learn.svg)](https://badge.fury.io/py/cmnemoi-learn) 
 
 Repository in which I will implement some of the machine learning models described in Elements Of Statistical Learning by Hastie, Tibshirani and Friedman from scratch (using only `numpy`) in form of a Python package.
@@ -56,3 +57,5 @@ pip install -r requirements-dev.txt
 # License
 
 [MIT License](LICENSE.md)
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcmnemoi%2Fcmnemoi-learn.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fcmnemoi%2Fcmnemoi-learn?ref=badge_large)
