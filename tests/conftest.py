@@ -1,6 +1,7 @@
 """
 Fixtures for unit tests
 """
+from typing import Tuple
 
 import numpy as np
 from sklearn.datasets import (
@@ -18,7 +19,7 @@ RANDOM_STATE = 42
 
 
 @pytest.fixture
-def classification_linear_dataset() -> np.ndarray:
+def classification_linear_dataset() -> Tuple[np.ndarray, np.ndarray]:
     """Classification dataset linearly separable
     `X, y = classification_linear_dataset` to use
 
@@ -36,7 +37,7 @@ def classification_linear_dataset() -> np.ndarray:
 
 
 @pytest.fixture
-def classification_linear_dataset_with_small_n_big_p() -> np.ndarray:
+def classification_linear_dataset_with_small_n_big_p() -> Tuple[np.ndarray, np.ndarray]:
     """Classification dataset linearly separable with small n and big p
     (under determined problem).
     `X, y = classification_linear_dataset_with_small_n_big_p` to use
@@ -55,7 +56,7 @@ def classification_linear_dataset_with_small_n_big_p() -> np.ndarray:
 
 
 @pytest.fixture
-def classification_moons_dataset() -> np.ndarray:
+def classification_moons_dataset() -> Tuple[np.ndarray, np.ndarray]:
     """Classification dataset with circles pattern (non linear)
     `X, y = classification_moons_dataset` to use
 
@@ -66,7 +67,7 @@ def classification_moons_dataset() -> np.ndarray:
 
 
 @pytest.fixture
-def regression_friedman_dataset() -> np.ndarray:
+def regression_friedman_dataset() -> Tuple[np.ndarray, np.ndarray]:
     """Regression dataset which follows friedman #2 problem pattern
     `X, y = regression_friedman_dataset` to use
 
@@ -77,7 +78,7 @@ def regression_friedman_dataset() -> np.ndarray:
 
 
 @pytest.fixture
-def regression_linear_dataset() -> np.ndarray:
+def regression_linear_dataset() -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     """Regression dataset which follows a linear pattern
     `X, y = regression_linear_dataset` to use
 
@@ -95,7 +96,7 @@ def regression_linear_dataset() -> np.ndarray:
 
 
 @pytest.fixture
-def regression_linear_dataset_with_small_n_big_p() -> np.ndarray:
+def regression_linear_dataset_with_small_n_big_p() -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     """Regression dataset which follows a linear pattern
     `X, y = regression_linear_dataset_with_small_n_big_p` to use
 
