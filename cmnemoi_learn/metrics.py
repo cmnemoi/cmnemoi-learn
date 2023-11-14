@@ -3,16 +3,16 @@
 import numpy as np
 
 
-def manhattan_distance(a: np.ndarray, b: np.ndarray) -> float:
-    """Compute Manhattan distance (L1 norm) between a and b.
+def manhattan_distance(v_1: np.ndarray, v_2: np.ndarray) -> float:
+    """Compute Manhattan distance (L1 norm) between two vectors.
 
     Args:
-        a (np.ndarray): numpy array
-        b (np.ndarray): numpy array
+        v_1: Vector as numpy array
+        v_2 Vector as numpy array
 
     Returns:
         float: Manhattan distance
     """
-    if a.shape != b.shape:
+    if v_1.shape != v_2.shape:
         raise ValueError("a and b should have the same shape")
-    return np.sum(np.abs(a - b))
+    return np.sum(np.abs(v_1 - v_2))
