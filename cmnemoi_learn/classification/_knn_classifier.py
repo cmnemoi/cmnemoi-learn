@@ -36,17 +36,21 @@ class KNNClassifier(AbstractClassifier):
 
     def predict(self, X: np.ndarray) -> np.ndarray:
         nb_rows, max_column = X.shape
+        # compute the distance between all input to predict and all data points in train set
         distances_between_input_and_dataset = np.full((nb_rows, self.dataset.shape[0]), np.inf)
         for i, x_i in enumerate(X):
             for j, x_j in enumerate(self.dataset[:, :max_column]):
                 distances_between_input_and_dataset[i, j] = manhattan_distance(x_i, x_j)
 
+        # get K nearest neighbors and associate them their labels
         nearest_neighbor_indexes = np.full((nb_rows, self.k), 0)
         nearest_neighbor_labels = np.full((nb_rows, self.k), 0)
         for i, distance in enumerate(distances_between_input_and_dataset):
             nearest_neighbor_indexes[i] = np.argpartition(distance, kth=self.k, axis=-1)[: self.k]
             nearest_neighbor_labels[i] = self.dataset[nearest_neighbor_indexes[i], max_column]
 
+        # count the number of occurences of each label in nearest neighbors and return the label
+        # with the highest count
         return np.array(
             [
                 np.argmax(np.bincount(nearest_neighbor_labels[i]))
