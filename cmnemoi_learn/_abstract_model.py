@@ -61,8 +61,4 @@ class AbstractModel(ABC):
         Returns:
             np.ndarray: Reshaped ndarray
         """
-        return (
-            ndarray.reshape((ndarray.shape[0], 1))
-            if len(ndarray.shape) == 1
-            else ndarray
-        )
+        return ndarray.reshape((ndarray.shape[0], 1)) if len(ndarray.shape) == 1 else ndarray

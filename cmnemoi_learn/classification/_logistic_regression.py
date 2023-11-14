@@ -56,9 +56,7 @@ class LogisticRegression(AbstractClassifier):
         """
         X = self._get_inputs_with_bias_column(X)
         probabilities = self._logistic_function(X @ self.weights)
-        return np.array(
-            [1 if probability > self.threshold else 0 for probability in probabilities]
-        )
+        return np.array([1 if probability > self.threshold else 0 for probability in probabilities])
 
     def _gradient_descent(self, n_iter: int, learning_rate: float = 0.5) -> np.ndarray:
         """Gradient descent algorithm.
@@ -76,9 +74,7 @@ class LogisticRegression(AbstractClassifier):
         weights_gradient = np.array([])
         for _ in range(n_iter):
             weights_gradient = (
-                (1 / n)
-                * self.X.T
-                @ (self._logistic_function(self.X @ weights) - self.y)
+                (1 / n) * self.X.T @ (self._logistic_function(self.X @ weights) - self.y)
             )
             weights = weights - learning_rate * weights_gradient
 
