@@ -68,6 +68,7 @@ def test_predict_iris_dataset(k: int) -> None:
 
     assert np.array_equal(cmnemoi_prediction, sklearn_prediction)
 
+
 @pytest.mark.parametrize("k", [1, 3, 7])
 def test_predict_with_l2_norm(k: int) -> None:
     """

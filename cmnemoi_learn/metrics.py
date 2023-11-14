@@ -2,6 +2,7 @@
 
 import numpy as np
 
+
 def euclidian_distance(v_1: np.ndarray, v_2: np.ndarray) -> float:
     """Compute Euclidian distance (L2 norm) between two vectors.
 

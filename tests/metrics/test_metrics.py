@@ -24,6 +24,7 @@ def test_manhattan_distance_raises_exception_if_arrays_not_same_size() -> None:
     with pytest.raises(ValueError, match="v_1 and v_2 should have the same shape"):
         manhattan_distance(v_1, v_2)
 
+
 def test_euclidian_distance() -> None:
     """Test for euclidian distance"""
     v_1 = np.random.randn(1, 10).ravel()
