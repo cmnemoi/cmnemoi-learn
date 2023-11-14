@@ -62,9 +62,7 @@ def classification_moons_dataset() -> np.ndarray:
     Returns:
         np.ndarray: The dataset
     """
-    return make_moons(
-        n_samples=NUMBER_OF_SAMPLES, shuffle=False, random_state=RANDOM_STATE
-    )
+    return make_moons(n_samples=NUMBER_OF_SAMPLES, shuffle=False, random_state=RANDOM_STATE)
 
 
 @pytest.fixture
