@@ -36,14 +36,20 @@ class KNNClassifier(AbstractClassifier):
 
     def predict(self, X: np.ndarray) -> np.ndarray:
         nb_rows, max_column = X.shape
-        distances = np.full((nb_rows, self.dataset.shape[0]), np.inf)
+        distances_between_input_and_dataset = np.full((nb_rows, self.dataset.shape[0]), np.inf)
         for i, x_i in enumerate(X):
             for j, x_j in enumerate(self.dataset[:, :max_column]):
-                distances[i, j] = manhattan_distance(x_i, x_j)
+                distances_between_input_and_dataset[i, j] = manhattan_distance(x_i, x_j)
 
-        predictions = []
-        minimums = np.argmin(distances, axis=1)
-        for minimum in minimums:
-            predictions.append(self.dataset[minimum, max_column])
+        nearest_neighbor_indexes = np.full((nb_rows, self.k), 0)
+        nearest_neighbor_labels = np.full((nb_rows, self.k), 0)
+        for i, distance in enumerate(distances_between_input_and_dataset):
+            nearest_neighbor_indexes[i] = np.argpartition(distance, kth=self.k, axis=-1)[: self.k]
+            nearest_neighbor_labels[i] = self.dataset[nearest_neighbor_indexes[i], max_column]
 
-        return np.array(predictions)
+        return np.array(
+            [
+                np.argmax(np.bincount(nearest_neighbor_labels[i]))
+                for i in range(len(nearest_neighbor_labels))
+            ]
+        )
