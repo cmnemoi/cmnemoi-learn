@@ -15,7 +15,7 @@ RANDOM_STATE = 42
 np.random.seed(RANDOM_STATE)
 
 
-@pytest.mark.parametrize("k", [1, 3, 10])
+@pytest.mark.parametrize("k", [1, 3, 7])
 def test_predict_moons_dataset(classification_moons_dataset: np.ndarray, k: int) -> None:
     """
     Test `predict` on a circle pattern dataset.
@@ -33,7 +33,7 @@ def test_predict_moons_dataset(classification_moons_dataset: np.ndarray, k: int)
     assert np.array_equal(cmnemoi_prediction, sklearn_prediction)
 
 
-@pytest.mark.parametrize("k", [1, 3, 10])
+@pytest.mark.parametrize("k", [1, 3, 7])
 def test_predict_linear_dataset(classification_linear_dataset: np.ndarray, k: int) -> None:
     """
     Test `predict` on a linearly separable dataset.
@@ -42,7 +42,7 @@ def test_predict_linear_dataset(classification_linear_dataset: np.ndarray, k: in
     cmnemoi_model = KNNClassifier(k=k)
     cmnemoi_model = cmnemoi_model.fit(X, y)
 
-    sklearn_model = SklearnKNNClassifier(n_neighbors=k, p=1)
+    sklearn_model = SklearnKNNClassifier(n_neighbors=k, p=1)  # p = 1 for Manhattan distance
     sklearn_model = sklearn_model.fit(X, y)
 
     cmnemoi_prediction = cmnemoi_model.predict(X)
@@ -51,7 +51,7 @@ def test_predict_linear_dataset(classification_linear_dataset: np.ndarray, k: in
     assert np.array_equal(cmnemoi_prediction, sklearn_prediction)
 
 
-@pytest.mark.parametrize("k", [1, 3, 10])
+@pytest.mark.parametrize("k", [1, 3, 7])
 def test_predict_iris_dataset(k: int) -> None:
     """
     Test `predict` on Iris dataset.
@@ -68,8 +68,25 @@ def test_predict_iris_dataset(k: int) -> None:
 
     assert np.array_equal(cmnemoi_prediction, sklearn_prediction)
 
+@pytest.mark.parametrize("k", [1, 3, 7])
+def test_predict_with_l2_norm(k: int) -> None:
+    """
+    Test `predict` on Iris dataset.
+    """
+    X, y = load_iris(return_X_y=True)
+    cmnemoi_model = KNNClassifier(k=k)
+    cmnemoi_model = cmnemoi_model.fit(X, y)
 
-@pytest.mark.parametrize("k", [1, 3, 10])
+    sklearn_model = SklearnKNNClassifier(n_neighbors=k, p=2)
+    sklearn_model = sklearn_model.fit(X, y)
+
+    cmnemoi_prediction = cmnemoi_model.predict(X)
+    sklearn_prediction = sklearn_model.predict(X)
+
+    assert np.array_equal(cmnemoi_prediction, sklearn_prediction)
+
+
+@pytest.mark.parametrize("k", [1, 3, 7])
 def test_score(classification_linear_dataset: np.ndarray, k: int) -> None:
     """Test `score` method against sklearn implementation.
 

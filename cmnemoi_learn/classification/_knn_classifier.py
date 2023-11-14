@@ -1,7 +1,7 @@
 """
 File defining a K-Nearest Neighbors classifier model.
 """
-from typing import Self
+from typing import Callable, Self
 import numpy as np
 
 from ._abstract_classifier import AbstractClassifier
@@ -19,16 +19,22 @@ class KNNClassifier(AbstractClassifier):
     a specific norm (L1, L2,...) and returns
     the majority label as prediction.
 
-    (For the moment only the L2 norm, ie. Euclidian distance, is available)
+    For the moment only L1 and L2 norms are available,
+    via the `metrics` module.
 
     Args:
         k (int): The number of neighbors to evaluate.
+        distance (Callable): The function to use to compute the distance
+        between points. By default: Manhattan distance
     """
 
-    def __init__(self, k: int) -> None:
+    def __init__(
+        self, k: int, distance: Callable[[np.ndarray, np.ndarray], float] = manhattan_distance
+    ) -> None:
         super().__init__()
         self.k = k
         self.dataset = np.array([])
+        self.distance = distance
 
     def fit(self, X: np.ndarray, y: np.ndarray) -> Self:
         self.dataset = np.concatenate([X, self._reshape_ndarray(y)], axis=1)
@@ -40,7 +46,7 @@ class KNNClassifier(AbstractClassifier):
         distances_between_input_and_dataset = np.full((nb_rows, self.dataset.shape[0]), np.inf)
         for i, x_i in enumerate(X):
             for j, x_j in enumerate(self.dataset[:, :max_column]):
-                distances_between_input_and_dataset[i, j] = manhattan_distance(x_i, x_j)
+                distances_between_input_and_dataset[i, j] = self.distance(x_i, x_j)
 
         # get K nearest neighbors and associate them their labels
         nearest_neighbor_indexes = np.full((nb_rows, self.k), 0)
