@@ -2,6 +2,17 @@
 
 
 
+## v0.5.0 (2023-11-14)
+
+### Feature
+
+* feat: Add KNN Classifier (#20) ([`bb77222`](https://github.com/cmnemoi/cmnemoi-learn/commit/bb7722247250b808678f2fdc6cc55a8f29b4589a))
+
+### Style
+
+* style: update black rules to allow lines up to 100 characters (#19) ([`93e438b`](https://github.com/cmnemoi/cmnemoi-learn/commit/93e438bbba24d149f5f42cdca94f79eb28e3ebe8))
+
+
 ## v0.4.0 (2023-09-16)
 
 ### Feature
