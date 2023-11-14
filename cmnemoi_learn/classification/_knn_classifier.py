@@ -35,8 +35,8 @@ class KNNClassifier(AbstractClassifier):
         return self
 
     def predict(self, X: np.ndarray) -> np.ndarray:
-        distances = np.full(X.shape, np.inf)
-        max_column = X.shape[1]
+        nb_rows, max_column = X.shape
+        distances = np.full((nb_rows, nb_rows), np.inf)
         for i, x_i in enumerate(X):
             for j, x_j in enumerate(self.dataset[:, :max_column]):
                 distances[i, j] = manhattan_distance(x_i, x_j)
