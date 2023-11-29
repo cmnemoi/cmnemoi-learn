@@ -33,7 +33,7 @@ poetry install
 ```bash
 conda create -n cmnemoi-learn python=3.11 -y
 conda activate cmnemoi-learn
-pip3 install cmnemoi-learn
+pip install cmnemoi-learn
 ```
 
 # Contributing
@@ -68,4 +68,4 @@ pip install -r requirements-dev.txt
 
 # License
 
-[MIT License](LICENSE.md)
+The source code of this repository is licensed under [MIT License](LICENSE.md)
