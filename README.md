@@ -15,6 +15,13 @@ The package will be published on PyPI at each push to the `main` branch through 
 
 # Install the package
 
+## With base tools
+```bash
+python3.11 venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
 ## pyenv and poetry
 ```bash
 pyenv install 3.11
@@ -39,6 +46,12 @@ cd cmnemoi-learn
 
 Then install dependencies. 
 
+```bash
+python3.11 venv .venv
+source .venv/bin/activate
+pip install -r requirements-dev.txt
+```
+
 If you run Poetry and pyenv:
 ```bash
 pyenv install 3.11
@@ -55,4 +68,4 @@ pip install -r requirements-dev.txt
 
 # License
 
-[MIT License](LICENSE.md)
+The source code of this project is available under [MIT License](LICENSE.md)
