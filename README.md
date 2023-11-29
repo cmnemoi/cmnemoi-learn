@@ -15,6 +15,13 @@ The package will be published on PyPI at each push to the `main` branch through 
 
 # Install the package
 
+## With base tools
+```bash
+python3.11 venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
 ## pyenv and poetry
 ```bash
 pyenv install 3.11
@@ -26,7 +33,7 @@ poetry install
 ```bash
 conda create -n cmnemoi-learn python=3.11 -y
 conda activate cmnemoi-learn
-pip install cmnemoi-learn
+pip3 install cmnemoi-learn
 ```
 
 # Contributing
@@ -38,6 +45,12 @@ cd cmnemoi-learn
 ```
 
 Then install dependencies. 
+
+```bash
+python3.11 venv .venv
+source .venv/bin/activate
+pip install -r requirements-dev.txt
+```
 
 If you run Poetry and pyenv:
 ```bash
