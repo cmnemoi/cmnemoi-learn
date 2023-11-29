@@ -68,4 +68,4 @@ pip install -r requirements-dev.txt
 
 # License
 
-The source code of this repository is licensed under [MIT License](LICENSE.md)
+The source code of this project is available under [MIT License](LICENSE.md)
