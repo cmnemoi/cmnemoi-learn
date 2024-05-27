@@ -26,7 +26,7 @@ pip install cmnemoi-learn
 ```bash
 pyenv install 3.11
 pyenv local 3.11
-poetry install cmnemoi-learn
+poetry add cmnemoi-learn
 ```
 
 # Contributing
