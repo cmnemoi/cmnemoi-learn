@@ -15,18 +15,10 @@ The package will be published on PyPI at each push to the `main` branch through 
 
 # Install the package
 
-## With base tools
 ```bash
 python3.11 venv .venv
 source .venv/bin/activate
 pip install cmnemoi-learn
-```
-
-## pyenv and poetry
-```bash
-pyenv install 3.11
-pyenv local 3.11
-poetry add cmnemoi-learn
 ```
 
 # Contributing
